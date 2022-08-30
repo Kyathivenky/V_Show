@@ -5,9 +5,17 @@ import React from 'react';
 
 function App() {
   return <Switch>
-    <Route path="/">
-      hi this is name
+    <Route exact path="/">
+      this is home page
     </Route>
+
+    <Route  exact path="/starred">
+      this is starred page
+    </Route>
+  <Route>
+    404 page
+  </Route>
+
   </Switch>
   
 }
