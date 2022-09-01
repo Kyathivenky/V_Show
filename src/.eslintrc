@@ -20,6 +20,12 @@
     "react/no-array-index-key": [0],
     "react/no-danger": [0],
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react/function-component-definition": "off",
+    "react-hooks/exhaustive-deps": "warn",
+    "arrow-body-style":"off",
+    "react/self-closing-comp": "off"
+  
+    
+
   }
 }
