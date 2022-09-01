@@ -23,7 +23,8 @@
     "react/function-component-definition": "off",
     "react-hooks/exhaustive-deps": "warn",
     "arrow-body-style":"off",
-    "react/self-closing-comp": "off"
+    "react/self-closing-comp": "off",
+    "no-unused-vars":"off"
   
     
 

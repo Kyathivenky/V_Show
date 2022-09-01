@@ -7,9 +7,7 @@ import Starred from './pages/Starred';
 
 
 function App() {
-  return <div>
-     
-     <Navs />
+  return (
 
     <Switch>
     <Route exact path="/">
@@ -24,9 +22,9 @@ function App() {
   </Route>
 
   </Switch>
-  </div> 
+  );
   
-}
+};
 
 
 export default App;
