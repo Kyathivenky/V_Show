@@ -12,6 +12,8 @@ const Home = () => {
   const [results , setResults] =useState(null);
   const [searchOption, SetSearchOption] = useState('shows');
   const isShowSearch = searchOption=== 'shows' ;
+  
+
   const onInputchange = (ev) => {
 
      SetInput(ev.target.value);
@@ -46,8 +48,7 @@ const OnRadioChange = (ev) =>
       SetSearchOption(ev.target.value);
 
 }
-// eslint-disable-next-line no-console
-console.log(searchOption);
+
 
 const renderResults = () =>
 {
