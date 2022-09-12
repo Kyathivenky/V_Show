@@ -1,5 +1,10 @@
+/* eslint-disable no-underscore-dangle */
 import React,{useEffect,useReducer} from 'react'
 import { useParams } from 'react-router'
+import Cast from '../components/shows/Cast';
+import Details from '../components/shows/Details';
+import Seasons from '../components/shows/Seasons';
+import ShowMainData from '../components/shows/ShowMainData';
 import { apiGet } from '../misc/config';
 
 
@@ -9,28 +14,28 @@ const reducer = (prevState , action) =>
        switch(action.type)
        {
 
-        case 'FETCH_SUCESS' :
+        case 'FETCH_SUCCESS' :
           {
-            return {...prevState, isLoading : false , show : action.Show, error : null }
+            return { isLoading : false , show : action.show, error : null }
           }
 
-          case ' FETCH_FAILED':
+          case 'FETCH_FAILED':
             {
                return {...prevState, isLoading:false , error: action.error}
             }
          default : return prevState;
        }
-}
+};
 
 const intialstate = {
-         show :null,
-         isLoading :true ,
-         error : null 
-}
+         show : null,
+         isLoading : true ,
+         error : null ,
+};
 
 const Show = () => {
 
- const {id} = useParams();
+ const { id } = useParams();
 
  const [{ show , isLoading, error}, dispatch]=useReducer(reducer, intialstate);
  /* const [show,setShow]=useState(null);
@@ -39,7 +44,7 @@ const Show = () => {
 
    useEffect(()=>{
 
-    let isMounted =true;
+    let isMounted = true;
 
     apiGet(`/shows/${id}?embed[]=seasons&embed[]=cast`)
    .then(results  => {
@@ -47,7 +52,7 @@ const Show = () => {
    
      if(isMounted){
      
-     dispatch({type : 'FETCH_SUCCESS' , show: results})
+     dispatch({type :'FETCH_SUCCESS' , show: results });
      
       
      }
@@ -55,28 +60,34 @@ const Show = () => {
    
    }).catch(err=>{
     if(isMounted)
-    dispatch({type : 'FETCH_FAILED' , Error : err.message})
+    dispatch({type : 'FETCH_FAILED' , Error : err.message});
     
    });
 
    return ()=>{
-    isMounted=false;
+    isMounted = false;
    }
-  },[id])
+  },[id]);
 
 
- console.log('show',show);
-if(isLoading)
+ 
+  if(isLoading)
 {
-  return <div>data is being loaded</div>
-}
+  return <div>data is being loaded</div>;
+}  
 if(error)
 {
-  return <div>Error occured :{error}</div>
+  return <div>Error occured :{error}</div>;
 }
   return (
     <div>
-      this is show pages
+      <ShowMainData image={show.image}  name ={show.name} rating ={show.rating} summary={show.summary} tags={show.genres} />
+      <div>Details</div>
+      <Details  status={show.status} premiered ={show.premiered} network={show.network} />
+      <div>Seasons</div>
+      <Seasons seasons={show._embedded.seasons }/>
+      <div>Cast</div>
+      <Cast cast={show._embedded.cast}/>
     </div>
   )
 };
