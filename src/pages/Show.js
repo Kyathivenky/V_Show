@@ -6,6 +6,7 @@ import Details from '../components/shows/Details';
 import Seasons from '../components/shows/Seasons';
 import ShowMainData from '../components/shows/ShowMainData';
 import { apiGet } from '../misc/config';
+import { InfoBlock, ShowPageWrapper } from './show.styled';
 
 
 
@@ -80,15 +81,15 @@ if(error)
   return <div>Error occured :{error}</div>;
 }
   return (
-    <div>
+    <ShowPageWrapper>
       <ShowMainData image={show.image}  name ={show.name} rating ={show.rating} summary={show.summary} tags={show.genres} />
-      <div>Details</div>
+      <InfoBlock>Details</InfoBlock>
       <Details  status={show.status} premiered ={show.premiered} network={show.network} />
-      <div>Seasons</div>
+      <InfoBlock>Seasons</InfoBlock>
       <Seasons seasons={show._embedded.seasons }/>
-      <div>Cast</div>
+      <InfoBlock>Cast</InfoBlock>
       <Cast cast={show._embedded.cast}/>
-    </div>
+    </ShowPageWrapper>
   )
 };
 
