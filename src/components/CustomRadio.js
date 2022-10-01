@@ -15,6 +15,12 @@ const RadioWrapper = styled.label`
   font-weight: 700;
   line-height: 1.65;
 
+  div
+  {
+    color :${({ theme }) => theme.mainColors.blue};
+    font-size:14px;
+  }
+
   input {
     position: absolute;
     opacity: 0;
@@ -37,6 +43,8 @@ const RadioWrapper = styled.label`
     border: 2px solid ${({ theme }) => theme.mainColors.blue};
   }
 
+ 
+
   span:after {
     content: '';
     position: absolute;
@@ -46,6 +54,7 @@ const RadioWrapper = styled.label`
   input:checked ~ span:after {
     display: block;
   }
+
 
   span:after {
     top: 4px;
@@ -59,7 +68,8 @@ const RadioWrapper = styled.label`
 
 const CustomRadio = ({label, ...restProps }) => {
   return (
-    <RadioWrapper htmlFor={restProps.id}>{label}<input {...restProps} type="radio"/>
+    <RadioWrapper htmlFor={restProps.id}><div>{label}
+    </div><input {...restProps} type="radio"/>
     <span/> </RadioWrapper>
   )
 }

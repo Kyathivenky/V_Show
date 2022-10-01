@@ -62,10 +62,11 @@ export const TagList = styled.div`
   span {
     margin: 6px;
     margin-bottom: 0;
-    color: blue;
-    background-color: #d0c9ff;
+    color:white;
+    background-color: ${({ theme }) => theme.mainColors.blue};
     padding: 3px 13px;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 16px;
+  
   }
 `;

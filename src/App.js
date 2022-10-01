@@ -9,9 +9,9 @@ import Starred from './pages/Starred';
 
 const theme = {
   mainColors: {
-    blue: '#00b4d8',
-    gray: '##caf0f8',
-    dark: '#1d4e89',
+    blue: '#47B5FF',
+    dark: '#87A2FB',
+    gray: '#DFF6FF',
   },
 };
 
