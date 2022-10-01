@@ -16,7 +16,7 @@ export const LinkStyled = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.mainColors.gray};
   &.active {
-    color: ${({ theme }) => theme.mainColors.blue};
+    color: ${({ theme }) => theme.mainColors.dark};
     &:after {
       content: '';
       position: absolute;

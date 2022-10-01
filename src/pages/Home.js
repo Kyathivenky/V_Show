@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from 'react';
 import ActorGrid from '../components/actors/ActorGrid';
+import CustomRadio from '../components/CustomRadio';
 import MainPageLayout from '../components/MainPageLayout';
 import ShowGrid from '../components/shows/ShowGrid';
 import {apiGet} from '../misc/config'
 import { useLastQuery } from '../misc/Custom-hooks';
+import { RadioInputsWrapper, SearchButtonWrapper, SearchInput } from './Home.styled';
 
 
 const Home = () => {
@@ -67,12 +69,22 @@ const renderResults = () =>
   return null;
 }
   return <div> <MainPageLayout/>
-  <input type="text" placeholder='Search for something' onChange={onInputchange} onKeyDown={onKeyDown} value={input}/>    
+  <SearchInput type="text" placeholder='Search for something' onChange={onInputchange} onKeyDown={onKeyDown} value={input}/>    
 
-  <div> <label htmlFor='show-search'>Shows<input id='show-search' type="radio" value="shows" onChange={OnRadioChange} checked={isShowSearch}/></label>
-  <label htmlFor='actor-search'>Actors<input id='actor-search' type="radio"  value= "people" onChange={OnRadioChange}checked={!isShowSearch} /></label>
-  </div>  
-  <button type="button" onClick={onSearch}>Search</button> 
+  <RadioInputsWrapper> <div>
+    
+  <CustomRadio label="Shows"  id='show-search'  value="shows" onChange={OnRadioChange} checked={isShowSearch}/>
+</div>
+
+<div>
+    
+  <CustomRadio label="Actors"  id='actor-search'  value="people" onChange={OnRadioChange} checked={!isShowSearch}/>
+</div>
+  
+  
+  
+  </RadioInputsWrapper>  
+  <SearchButtonWrapper><button type="button" onClick={onSearch}>Search  </button> </SearchButtonWrapper> 
   {renderResults()}
   
   
