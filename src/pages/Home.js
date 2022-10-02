@@ -7,6 +7,7 @@ import ShowGrid from '../components/shows/ShowGrid';
 import {apiGet} from '../misc/config'
 import { useLastQuery } from '../misc/Custom-hooks';
 import { RadioInputsWrapper, SearchButtonWrapper, SearchInput } from './Home.styled';
+import err404 from './error404.png'
 
 
 const Home = () => {
@@ -57,7 +58,7 @@ const renderResults = () =>
 {
   if(results && results.length === 0){
 
-    return  <div>no results</div>
+    return  <div><img style={{width : '100%',height: "auto"}} src={err404} alt="404"/></div>
 
   }
 

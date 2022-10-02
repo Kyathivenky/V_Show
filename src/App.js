@@ -6,6 +6,7 @@ import Navs from './components/Navs';
 import Home from './pages/Home';
 import Show from './pages/Show';
 import Starred from './pages/Starred';
+import err404 from  './pages/error404.png'
 
 const theme = {
   mainColors: {
@@ -33,7 +34,7 @@ function App() {
     </Route>
    
   <Route>
-    <div>404</div>
+    <div><img style={{width : '100%',height: "auto"}} src={err404} alt="404"/> </div>
   </Route>
 
   </Switch>
