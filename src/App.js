@@ -10,9 +10,9 @@ import err404 from  './pages/error404.png'
 
 const theme = {
   mainColors: {
-    blue: '#47B5FF',
-    dark: '#87A2FB',
-    gray: '#DFF6FF',
+    blue: '#00ABE1',
+    dark: '#00ABE1',
+    gray: '#E1E2E2',
   },
 };
 

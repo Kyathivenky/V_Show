@@ -1,7 +1,12 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "V shows",
+  "name": "V shows",
   "icons": [
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "64x64 32X32 24x24 16x16"
+    },
 
     {
       "src": "logo192.png",
