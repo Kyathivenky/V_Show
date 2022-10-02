@@ -1,4 +1,5 @@
-import { useReducer , useEffect, useState } from "react";
+
+import { useReducer ,useCallback, useEffect, useState ,useRef} from "react";
 import { apiGet } from "./config";
 
 function showsReducer(prevState,action)
@@ -49,10 +50,10 @@ export  function useLastQuery(key = 'lastQuery') {
 
     });
 
-    const SetPersistedInput = (newState) =>{
+    const SetPersistedInput =useCallback(  (newState) =>{
         setInput(newState);
-        sessionStorage.setItem(key , JSON.stringify(newState));
-    }
+        sessionStorage.setItem(key , JSON.stringify(newState))
+    },[key]);
 
     return [input,SetPersistedInput]
 }
@@ -113,3 +114,4 @@ export function useShow(showId)
 
   return state;
 }
+

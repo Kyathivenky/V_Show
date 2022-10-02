@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useState } from 'react';
+import React, { useState,useCallback } from 'react';
 import ActorGrid from '../components/actors/ActorGrid';
 import CustomRadio from '../components/CustomRadio';
 import MainPageLayout from '../components/MainPageLayout';
 import ShowGrid from '../components/shows/ShowGrid';
 import {apiGet} from '../misc/config'
-import { useLastQuery } from '../misc/Custom-hooks';
+import { useLastQuery} from '../misc/Custom-hooks';
 import { RadioInputsWrapper, SearchButtonWrapper, SearchInput } from './Home.styled';
 import err404 from './error404.png'
 
@@ -18,11 +18,7 @@ const Home = () => {
   const isShowSearch = searchOption=== 'shows' ;
   
 
-  const onInputchange = (ev) => {
 
-     SetInput(ev.target.value);
-  
-  };
 
   const onSearch = () =>
   {
@@ -36,22 +32,26 @@ const Home = () => {
    });
 };
 
-const onKeyDown =(ev) =>{
+const onInputchange = (ev) => {
+
+  SetInput(ev.target.value);
+
+};
+
+const onKeyDown = (ev) =>{
 
   if(ev.keyCode === 13 )
 {
    onSearch();
 } 
-
-
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
 };
 
-const OnRadioChange = (ev) =>
+const OnRadioChange = useCallback( (ev) =>
 {
       SetSearchOption(ev.target.value);
 
-}
+},[]);
 
 
 const renderResults = () =>
@@ -68,7 +68,10 @@ const renderResults = () =>
         } 
 
   return null;
-}
+};
+
+
+
   return <div> <MainPageLayout/>
   <SearchInput type="text" placeholder='Search for something' onChange={onInputchange} onKeyDown={onKeyDown} value={input}/>    
 
